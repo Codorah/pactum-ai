@@ -1,9 +1,7 @@
-# <div align="center"><img src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" alt="Pactum AI Banner" width="100%" /></div>
-
 <div align="center">
 
 # 🛡️ Pactum AI
-### *Votre bouclier juridique autonome, 100% local, souverain & ultra-sécurisé.*
+### *Your autonomous, 100% local, sovereign & ultra-secure legal co-pilot.*
 
 [![WebGPU](https://img.shields.io/badge/Tech-WebGPU%20%2F%20WASM-7c3aed?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API)
 [![Gemma 2](https://img.shields.io/badge/LLM-Gemma%202--2B--it-8b5cf6?style=for-the-badge)](https://huggingface.io/google/gemma-2-2b-it)
@@ -14,89 +12,89 @@
 
 ---
 
-## 💡 Le Problème & La Solution
+## 💡 The Problem & The Solution
 
-Dans le monde juridique et de l'entreprise, **la confidentialité absolue des données est un impératif non négociable**. Envoyer des contrats hautement confidentiels (NDAs, accords d'acquisition, contrats de travail, secrets d'affaires) vers des API ou serveurs cloud tiers crée un risque permanent de fuite de données et de non-conformité réglementaire.
+In the legal and corporate worlds, **absolute data confidentiality is a non-negotiable requirement**. Sending highly sensitive documents (NDAs, acquisition agreements, employment contracts, trade secrets) to external cloud servers or third-party APIs exposes organizations to permanent data leak risks and regulatory non-compliance.
 
-**Pactum AI** résout cette impasse grâce à une architecture **100% Edge AI** :
-- **Confidentialité par construction** : Les contrats sont analysés **exclusivement au sein du navigateur de l'utilisateur**. Aucun octet de texte, aucune variable, aucune photo ne quitte la machine locale.
-- **Zéro infrastructure, Zéro coût d'API** : En s'appuyant sur WebAssembly et WebGPU, Pactum fait tourner **Gemma 2 (2B-IT)** localement pour des coûts serveur nuls et un fonctionnement entièrement autonome hors-ligne.
-- **Double langue automatique** : L'interface et les analyses détectent automatiquement la langue du navigateur (français / anglais) et proposent une bascule manuelle en un clic.
+**Pactum AI** solves this critical challenge with a **100% Edge AI** architecture:
+- **Confidentiality by Design**: Contracts are analyzed **exclusively inside the user's browser**. No text, no variables, no photos ever leave the local machine.
+- **Zero Infrastructure, Zero API Costs**: By leveraging WebAssembly and WebGPU, Pactum runs **Gemma 2 (2B-IT)** locally in the browser with zero server costs and full offline capabilities.
+- **Automatic Multi-Language**: The interface and agent analyses automatically detect the browser's language (French / English) and offer a manual toggle in a single click.
 
 ---
 
-## 🤖 L'Architecture Multi-Agent Locale
+## 🤖 Autonomous Local Multi-Agent Architecture
 
-Pactum AI orchestre un flux collaboratif de **3 agents spécialisés autonomes** travaillant de concert à travers un **Mega-Prompt structuré** exécuté localement :
+Pactum AI orchestrates a collaborative workflow of **3 specialized autonomous agents** working together through a structured **Mega-Prompt** executed locally:
 
 ```mermaid
 graph TD
-    A[Contrat Utilisateur] --> B[ContractWorker - Web Worker]
+    A[User Contract] --> B[ContractWorker - Web Worker]
     B --> C["1. Extractor (JSON)"]
     B --> D["2. Auditor (Risk Assessment)"]
     B --> E["3. Redactor (Rewriting)"]
-    C --> F[Variables Clés Extracted]
-    D --> G[Score & Liste des Risques]
-    E --> H[Clauses Équilibrées Side-by-Side]
+    C --> F[Key Extracted Variables]
+    D --> G[Compliance Score & Risks]
+    E --> H[Side-by-Side Balanced Clauses]
     F & G & H --> I[IndexedDB Local Storage]
-    I --> J[Tableau de bord Instantané]
+    I --> J[Instant Interactive Dashboard]
 ```
 
-1. **L'Extracteur (Extractor)** : Identifie et cartographie les variables juridiques critiques (Parties prenantes, Dates clés d'effet et de résiliation, limites de responsabilité).
-2. **L'Auditeur (Auditor)** : Analyse les clauses du contrat au regard des standards commerciaux et calcule un **score de conformité de 0 à 10** en colorant les risques selon leur sévérité (*Élevé, Moyen, Faible*).
-3. **Le Rédacteur (Redactor)** : Formule des réécritures équilibrées, équitables et hautement professionnelles prêtes à être insérées à la place des clauses abusives d'origine.
+1. **The Extractor (Extractor)**: Maps and identifies critical legal variables (Parties, effective/termination dates, liability caps).
+2. **The Auditor (Auditor)**: Evaluates clauses against standard commercial terms, calculating a **compliance score from 0 to 10** and highlighting risks based on severity (*High, Medium, Low*).
+3. **The Redactor (Redactor)**: Drafts balanced, fair, and highly professional protective rewrites to replace unfair original clauses.
 
 ---
 
-## 🛠️ Stack Technique & Performance
+## 🛠️ Tech Stack & Performance
 
-- **Interface & Expérience** : React, TypeScript, Vite.
-- **Moteur IA Local** : `@mediapipe/tasks-genai` (WebAssembly & WebGPU) permettant le chargement et l'inférence locale performante de **Gemma 2B IT** directement dans le moteur de rendu du navigateur.
-- **Inférence Multi-Thread** : Déportation des calculs lourds de l'IA dans un **Web Worker (`contractWorker.ts`)** indépendant afin de conserver une interface utilisateur fluide et réactive à 60 FPS.
-- **Base de Données Locale** : **IndexedDB** pour stocker, recharger ou supprimer localement l'historique complet des audits de l'utilisateur, préservant la souveraineté des données.
-- **Design System Sombre Premium** : Charte graphique ultra-premium (#000000 sombre profond, accents violets vibrants `#7c3aed`, polices *Inter* pour l'UI et *JetBrains Mono* pour les comparateurs side-by-side de clauses) utilisant **Tailwind CSS** et **Framer Motion** pour des micro-animations fluides.
-- **PWA (Progressive Web App)** : Configuration de mise en cache du modèle lourd `.bin` dans l'API Cache du navigateur (`sw.js`) pour garantir une disponibilité hors-ligne totale.
-
----
-
-## ⚡ Mode Démo & Pitch Hackathon
-
-Pour maximiser l'impact lors des présentations et des pitchs sans subir les contraintes de bande passante réseau ou le temps d'initialisation de l'IA locale (téléchargement du modèle de 2 Go) :
-- **Bouton "Load High-Risk Sample"** : Injecte instantanément un modèle de contrat d'exemple piégé contenant des clauses extrêmement abusives (préavis de résiliation de 2h via Slack, responsabilité illimitée, pénalités de retard unilatérales usuraires de 15% par mois, etc.) afin d'illustrer immédiatement la réactivité de l'analyse juridique.
-- **Double Mode d'Exécution** :
-  1. **Simulation (Pitch Mode)** : Un mode ultra-rapide de démonstration, simulant le passage de flambeau des 3 agents avec une jauge animée et affichant instantanément le rapport juridique exhaustif et complet.
-  2. **Local Gemma 2B** : La démonstration technique finale de l'exécution WASM/WebGPU 100% autonome et hors-ligne dans le navigateur.
-- **Scanning Photo & Import** : Importez des fichiers (`.txt`, `.pdf`) ou téléversez directement des clichés de contrats physiques papier (simulant une capture OCR en local) pour déclencher les agents.
+- **Frontend & UX**: React, TypeScript, Vite.
+- **Local AI Engine**: `@mediapipe/tasks-genai` (WebAssembly & WebGPU) enabling fast and responsive browser inference of **Gemma 2B IT**.
+- **Multi-Thread Inference**: Heavy LLM calculations are delegated to a dedicated **Web Worker (`contractWorker.ts`)** to keep the user interface buttery smooth at 60 FPS.
+- **Sovereign Local Storage**: **IndexedDB** stores and retrieves the user's audit history locally with zero server database calls.
+- **Premium Dark Design**: A state-of-the-art "Violet & Noir" theme (#000000 deep dark, vibrant `#7c3aed` accents, *Inter* UI font, and *JetBrains Mono* for clause comparisons) using **Tailwind CSS** and **Framer Motion** for elegant micro-animations.
+- **PWA (Progressive Web App)**: Service Worker-driven caching (`sw.js`) stores the heavy model `.bin` files inside the browser Cache API for instantaneous offline startup.
 
 ---
 
-## 🚀 Démarrage Rapide
+## ⚡ Pitch & Hackathon Mode
 
-### Prérequis
+To ensure a seamless presentation regardless of network bandwidth or local model initialization time (downloading the 2GB model):
+- **"Load High-Risk Sample" Button**: Instantly injects a sample contract containing flagrant unfair terms (2-hour notice termination via Slack, unlimited liability, unilateral 15%/month late fees) to demonstrate immediate legal auditing.
+- **Dual Execution Engine**:
+  1. **Simulation (Pitch Mode)**: An ultra-fast showcase mode that runs a simulated multi-agent analysis with animated step-by-step progress bars and high-fidelity results.
+  2. **Local Gemma 2B**: The technical validation of 100% offline, decentralized WebGPU/WASM browser inference.
+- **Document OCR & Import**: Drag-and-drop `.txt` or `.pdf` files, or upload photos of physical paper contracts (simulating local OCR text extraction) to trigger the agents.
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
 - [Node.js](https://nodejs.org/) (Version 18+)
 
 ### Installation
 
-1. Clonez le dépôt GitHub :
+1. Clone the GitHub repository:
 ```bash
 git clone https://github.com/Codorah/pactum-ai.git
 cd pactum-ai
 ```
 
-2. Installez les dépendances :
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Lancez le serveur de développement local :
+3. Start the local development server:
 ```bash
 npm run dev
 ```
 
-Ouvrez ensuite [http://localhost:5173](http://localhost:5173) (ou le port indiqué par Vite) pour accéder instantanément à Pactum AI en local avec zéro configuration requise.
+Open [http://localhost:5173](http://localhost:5173) in your browser to experience Pactum AI completely locally with zero configuration required.
 
 ---
 
 <div align="center">
-Créé avec ❤️ pour le Pitch Hackathon Pactum AI. Protégez vos accords en toute souveraineté.
+Created with ❤️ for the Pactum AI Hackathon Pitch. Protect your agreements, keep your sovereignty.
 </div>
