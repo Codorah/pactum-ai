@@ -1,0 +1,8 @@
+{
+  "name": "Pactum AI",
+  "description": "An autonomous multi-agent legal platform for contract management, risk auditing, and automated redaction for startups and SMEs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
