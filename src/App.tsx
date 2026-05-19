@@ -63,6 +63,152 @@ interface ChatMessage {
   data?: any;
 }
 
+// --- Translation Dictionary ---
+const translations = {
+  fr: {
+    appSubtitle: "Local Edge AI",
+    dashboard: "Tableau de bord",
+    runAudit: "Lancer l'audit",
+    pitchMode: "Pitch Mode (PWA Ready)",
+    newChat: "Nouveau Chat Audit",
+    recentAudits: "Audits récents (IndexedDB)",
+    noHistory: "Aucun historique local",
+    privacyTitle: "Confidentialité Totale",
+    privacyDesc: "Vos contrats ne quittent jamais votre machine. Tout est analysé en local.",
+    toastDeleted: "Audit supprimé de l'historique local",
+    toastDeleteError: "Impossible de supprimer l'audit",
+    toastContractInjected: "Contrat piégé injecté.",
+    toastOcrDone: "OCR terminé. Contrat numérisé !",
+    toastAgentDone: "Agent local : Tâche complétée !",
+    toastImported: "importé !",
+    toastNoContract: "Veuillez d'abord téléverser ou coller un contrat !",
+    toastAnalyzing: "Numérisation et extraction OCR en cours via IA locale...",
+    welcomeBack: "J'ai retrouvé votre contrat dans IndexedDB. Voici le rapport d'analyse globale. Vous pouvez me poser des questions ou ré-exécuter des tâches d'agent.",
+    initChat: "Bonjour ! Je suis Pactum AI, votre bouclier juridique Edge autonome. Pour commencer, vous pouvez me coller un contrat, téléverser un fichier (`.txt`, `.pdf`) ou téléverser une photo d'un contrat écrit avec le bouton **+**.",
+    landingTag: "Hackathon Winner : IA Souveraine & Locale",
+    landingTitle1: "Votre copilote juridique",
+    landingTitle2: "conversationnel",
+    landingTitle3: "100% local.",
+    landingDesc: "Glissez-déposez des documents ou scannez des photos de contrats. Dialoguez avec nos 3 agents spécialisés (Extracteur, Auditeur, Rédacteur) en toute sécurité directement dans le navigateur.",
+    startChat: "Démarrer le Chat Legal",
+    tryMock: "Essayer le Mock Contrat",
+    infoZeroLeak: "Inférence Locale (Zéro fuite)",
+    infoImport: "Import PDF, Textes & Photos",
+    infoPwa: "PWA Installable Hors-ligne",
+    savedChats: "Retrouvez vos discussions juridiques locales sauvegardées",
+    scoreText: "Score :",
+    docActive: "Doc actif :",
+    copilotStatus: "Pactum Local Copilot",
+    loadSampleBtn: "Charger l'échantillon de contrat piégé (Sample High-Risk)",
+    placeholderText: "Posez une question, collez un contrat ou lancez un agent local...",
+    quickChipsTitle: "Tâches d'agents autonomes :",
+    spawningAgent: "Création de l'agent...",
+    assistantThinking: "L'assistant réfléchit...",
+    noContractAlert: "⚠️ Je vois que vous me demandez d'agir sur un contrat, mais **aucun document n'a été importé** dans l'espace de travail.\n\nVeuillez coller le contrat, charger l'exemple piégé ou importer un fichier/photo avant que je ne puisse lancer mes agents !",
+    variablesTitle: "Variables clés extraites (Agent Extractor)",
+    parties: "Parties contractantes",
+    dates: "Dates de validité",
+    liabilities: "Responsabilités détectées",
+    risksTitle: "Rapport des Risques (Agent Auditor)",
+    compliance: "Conformité :",
+    rewritesTitle: "Réécriture des Clauses Abusives (Agent Redactor)",
+    originalClause: "Clause Originale",
+    pactumProposal: "Proposition Pactum AI",
+    runExtractorBtn: "1. Run Extractor",
+    runAuditorBtn: "2. Run Auditor",
+    runRedactorBtn: "3. Run Redactor",
+    runFullBtn: "Analyse Globale (3 Agents)",
+    iaProcessing: "IA en cours de traitement",
+    workspaceTitle: "Pactum AI Espace de Chat",
+    workspaceDesc: "Aucun contrat chargé. Pour commencer l'audit, utilisez le bouton \"+\" pour importer un fichier, une photo du contrat ou chargez le modèle d'essai.",
+    selectFileBtn: "Sélectionner un fichier",
+    footerAlert: "Pactum AI compile et exécute les agents en local. Les photos sont numérisées directement par l'IA du navigateur.",
+    copiedToast: "Clause copiée !",
+    copyText: "Copier",
+    copiedText: "Copié",
+    clauseNumber: "Clause #",
+    originalAbusive: "Originale Abusive",
+    pactumOpt: "Optimisation Pactum",
+    synthesisTitle: "Synthèse de l'audit local",
+    excellentCompliance: "Conformité Excellente",
+    moderateVigilance: "Points de vigilance modérés",
+    criticalCompliance: "Conformité critique (Haut Risque)",
+    clausesAbusiveWarning: " Plusieurs clauses abusives requièrent des modifications.",
+    structureHealthy: " La structure juridique est globalement saine."
+  },
+  en: {
+    appSubtitle: "Local Edge AI",
+    dashboard: "Dashboard",
+    runAudit: "Run Audit",
+    pitchMode: "Pitch Mode (PWA Ready)",
+    newChat: "New Audit Chat",
+    recentAudits: "Recent Audits (IndexedDB)",
+    noHistory: "No local history found",
+    privacyTitle: "Absolute Privacy",
+    privacyDesc: "Your contracts never leave your machine. Everything is analyzed locally.",
+    toastDeleted: "Audit deleted from local history",
+    toastDeleteError: "Unable to delete audit",
+    toastContractInjected: "High-risk sample contract loaded.",
+    toastOcrDone: "OCR scan completed. Contract digitized!",
+    toastAgentDone: "Local Agent: Task completed!",
+    toastImported: "imported!",
+    toastNoContract: "Please upload or paste a contract first!",
+    toastAnalyzing: "OCR scanning and text extraction in progress via local AI...",
+    welcomeBack: "I found your contract in IndexedDB. Here is the global analysis report. You can ask me questions or re-run agent tasks.",
+    initChat: "Hello! I am Pactum AI, your autonomous legal Edge shield. To start, you can paste a contract, upload a file (`.txt`, `.pdf`), or upload a physical photo of a contract using the **+** button.",
+    landingTag: "Hackathon Winner: Sovereign & Local AI",
+    landingTitle1: "Your 100% local",
+    landingTitle2: "conversational",
+    landingTitle3: "legal co-pilot.",
+    landingDesc: "Drag and drop documents or scan contract photos. Talk with our 3 specialized agents (Extractor, Auditor, Redactor) securely directly in your browser.",
+    startChat: "Start Legal Chat",
+    tryMock: "Try Mock Contract",
+    infoZeroLeak: "Local Inference (Zero Leak)",
+    infoImport: "Import PDF, Text & Photos",
+    infoPwa: "Offline Installable PWA",
+    savedChats: "Retrieve your saved local legal discussions",
+    scoreText: "Score:",
+    docActive: "Active doc:",
+    copilotStatus: "Pactum Local Copilot",
+    loadSampleBtn: "Load High-Risk Sample Contract",
+    placeholderText: "Ask a question, paste a contract or launch a local agent...",
+    quickChipsTitle: "Autonomous Agent Tasks:",
+    spawningAgent: "Spawning agent...",
+    assistantThinking: "Assistant is thinking...",
+    noContractAlert: "⚠️ I see you are asking me to act on a contract, but **no document has been imported** to the workspace.\n\nPlease paste a contract, load the sample, or import a file/photo before I can launch my agents!",
+    variablesTitle: "Key Extracted Variables (Extractor Agent)",
+    parties: "Contracting Parties",
+    dates: "Validity Dates",
+    liabilities: "Detected Responsibilities",
+    risksTitle: "Risk Report (Auditor Agent)",
+    compliance: "Compliance:",
+    rewritesTitle: "Unfair Clauses Rewriting (Redactor Agent)",
+    originalClause: "Original Clause",
+    pactumProposal: "Pactum AI Proposal",
+    runExtractorBtn: "1. Run Extractor",
+    runAuditorBtn: "2. Run Auditor",
+    runRedactorBtn: "3. Run Redactor",
+    runFullBtn: "Global Audit (3 Agents)",
+    iaProcessing: "AI Processing",
+    workspaceTitle: "Pactum AI Chat Workspace",
+    workspaceDesc: "No contract loaded. To start the audit, use the \"+\" button to import a file, a photo of the contract or load the high-risk sample.",
+    selectFileBtn: "Select file",
+    footerAlert: "Pactum AI compiles and runs agents locally. Photos are scanned directly by browser AI.",
+    copiedToast: "Clause copied!",
+    copyText: "Copy",
+    copiedText: "Copied",
+    clauseNumber: "Clause #",
+    originalAbusive: "Abusive Original",
+    pactumOpt: "Pactum Optimization",
+    synthesisTitle: "Local Audit Synthesis",
+    excellentCompliance: "Excellent Compliance",
+    moderateVigilance: "Moderate vigilance points",
+    criticalCompliance: "Critical Compliance (High Risk)",
+    clausesAbusiveWarning: " Several abusive clauses require modification.",
+    structureHealthy: " The legal structure is overall healthy."
+  }
+};
+
 export default function App() {
   const [viewMode, setViewMode] = useState<ViewMode>('landing');
   const [history, setHistory] = useState<PactumAudit[]>([]);
@@ -72,6 +218,19 @@ export default function App() {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [activeContractText, setActiveContractText] = useState<string>('');
   const [uploadedFileName, setUploadedFileName] = useState<string>('');
+
+  // Auto-detect browser language
+  const [lang, setLang] = useState<'fr' | 'en'>(() => {
+    if (typeof navigator !== 'undefined') {
+      const browserLang = navigator.language || (navigator as any).userLanguage || '';
+      if (browserLang.toLowerCase().startsWith('en')) {
+        return 'en';
+      }
+    }
+    return 'fr';
+  });
+
+  const t = translations[lang];
 
   const loadHistory = async () => {
     try {
@@ -97,7 +256,7 @@ export default function App() {
         id: 'welcome_' + audit.id,
         sender: 'assistant',
         timestamp: audit.timestamp - 10000,
-        text: `J'ai retrouvé votre contrat **"${audit.contractName}"** dans IndexedDB. Voici le rapport d'analyse globale. Vous pouvez me poser des questions ou ré-exécuter des tâches d'agent.`,
+        text: t.welcomeBack.replace("IndexedDB", "**IndexedDB**"),
         type: 'full_audit',
         contractText: audit.contractText,
         data: audit
@@ -115,25 +274,40 @@ export default function App() {
         id: 'init_chat',
         sender: 'assistant',
         timestamp: Date.now(),
-        text: "Bonjour ! Je suis Pactum AI, votre bouclier juridique Edge autonome. Pour commencer, vous pouvez me coller un contrat, téléverser un fichier (`.txt`, `.pdf`) ou téléverser une photo d'un contrat écrit avec le bouton **+**.",
+        text: t.initChat,
         type: 'text'
       }
     ]);
     setViewMode('app');
   };
 
+  // Sync greeting language dynamically if user changes language while starting
+  useEffect(() => {
+    if (chatMessages.length === 1 && chatMessages[0].id === 'init_chat') {
+      setChatMessages([
+        {
+          id: 'init_chat',
+          sender: 'assistant',
+          timestamp: chatMessages[0].timestamp,
+          text: t.initChat,
+          type: 'text'
+        }
+      ]);
+    }
+  }, [lang]);
+
   const handleDeleteAudit = async (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
     try {
       await deleteAudit(id);
-      toast.success("Audit supprimé de l'historique local");
+      toast.success(t.toastDeleted);
       if (activeAudit?.id === id) {
         handleNewAudit();
       } else {
         loadHistory();
       }
     } catch (err) {
-      toast.error("Impossible de supprimer l'audit");
+      toast.error(t.toastDeleteError);
     }
   };
 
@@ -150,6 +324,8 @@ export default function App() {
         viewMode={viewMode} 
         onEnterApp={() => setViewMode('app')} 
         onGoHome={() => setViewMode('landing')}
+        lang={lang}
+        setLang={setLang}
       />
       
       <AnimatePresence mode="wait">
@@ -162,7 +338,13 @@ export default function App() {
             transition={{ duration: 0.5 }}
             className="pt-16"
           >
-            <LandingView onStart={() => setViewMode('app')} onSelectAudit={handleSelectAudit} history={history} onDeleteAudit={handleDeleteAudit} />
+            <LandingView 
+              onStart={() => setViewMode('app')} 
+              onSelectAudit={handleSelectAudit} 
+              history={history} 
+              onDeleteAudit={handleDeleteAudit}
+              lang={lang}
+            />
           </motion.div>
         ) : (
           <motion.div
@@ -179,6 +361,7 @@ export default function App() {
               onSelectAudit={handleSelectAudit} 
               onNewAudit={handleNewAudit} 
               onDeleteAudit={handleDeleteAudit}
+              lang={lang}
             />
             <main className="flex-1 lg:pl-72 flex flex-col h-full bg-[#070709] relative">
                <ChatInterface 
@@ -189,6 +372,7 @@ export default function App() {
                  uploadedFileName={uploadedFileName}
                  setUploadedFileName={setUploadedFileName}
                  onAuditComplete={loadHistory}
+                 lang={lang}
                />
             </main>
           </motion.div>
@@ -201,42 +385,73 @@ export default function App() {
 }
 
 // --- Navigation Header ---
-const Navbar = ({ viewMode, onEnterApp, onGoHome }: { viewMode: ViewMode; onEnterApp: () => void; onGoHome: () => void }) => (
-  <nav className="fixed top-0 left-0 right-0 h-16 border-b border-purple-950/20 bg-black/85 backdrop-blur-md z-50 px-6 flex items-center justify-between">
-    <div className="flex items-center gap-2 cursor-pointer group" onClick={onGoHome}>
-      <div className="w-9 h-9 bg-gradient-to-tr from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-all">
-        <Shield className="w-5 h-5 text-white" />
-      </div>
-      <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent font-sans">Pactum AI</span>
-      <Badge variant="outline" className="border-purple-500/20 text-purple-400 bg-purple-950/20 text-[9px] font-semibold px-2 py-0.5 rounded-full">
-        Local Edge AI
-      </Badge>
-    </div>
-    
-    <div className="flex items-center gap-6">
-      {viewMode === 'landing' ? (
-        <>
-          <Button variant="ghost" size="sm" className="hidden md:flex text-gray-400 hover:text-white" onClick={onEnterApp}>
-            Tableau de bord
-          </Button>
-          <Button size="sm" className="bg-purple-600 hover:bg-purple-500 text-white rounded-full px-6 shadow-lg shadow-purple-600/30 transition-all font-semibold" onClick={onEnterApp}>
-            Lancer l'audit
-            <ArrowRight className="w-4 h-4 ml-1.5" />
-          </Button>
-        </>
-      ) : (
-        <div className="flex items-center gap-3">
-          <Badge variant="secondary" className="bg-purple-950/30 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-lg">
-            Pitch Mode (PWA Ready)
-          </Badge>
-          <div className="w-8 h-8 rounded-full bg-purple-900/50 border border-purple-500/30 flex items-center justify-center overflow-hidden">
-             <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Pactum" alt="User" />
-          </div>
+const Navbar = ({ 
+  viewMode, 
+  onEnterApp, 
+  onGoHome,
+  lang,
+  setLang
+}: { 
+  viewMode: ViewMode; 
+  onEnterApp: () => void; 
+  onGoHome: () => void;
+  lang: 'fr' | 'en';
+  setLang: (l: 'fr' | 'en') => void;
+}) => {
+  const t = translations[lang];
+  return (
+    <nav className="fixed top-0 left-0 right-0 h-16 border-b border-purple-950/20 bg-black/85 backdrop-blur-md z-50 px-6 flex items-center justify-between">
+      <div className="flex items-center gap-2 cursor-pointer group" onClick={onGoHome}>
+        <div className="w-9 h-9 bg-gradient-to-tr from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-all">
+          <Shield className="w-5 h-5 text-white" />
         </div>
-      )}
-    </div>
-  </nav>
-);
+        <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent font-sans">Pactum AI</span>
+        <Badge variant="outline" className="border-purple-500/20 text-purple-400 bg-purple-950/20 text-[9px] font-semibold px-2 py-0.5 rounded-full">
+          {t.appSubtitle}
+        </Badge>
+      </div>
+      
+      <div className="flex items-center gap-4 md:gap-6">
+        {/* Language switch button */}
+        <div className="flex items-center bg-[#121217] border border-purple-950/40 p-0.5 rounded-lg shrink-0">
+          <button 
+            onClick={() => setLang('fr')}
+            className={`px-2 py-0.5 rounded text-[10px] font-bold transition-all ${lang === 'fr' ? 'bg-purple-600 text-white' : 'text-gray-400 hover:text-white'}`}
+          >
+            FR
+          </button>
+          <button 
+            onClick={() => setLang('en')}
+            className={`px-2 py-0.5 rounded text-[10px] font-bold transition-all ${lang === 'en' ? 'bg-purple-600 text-white' : 'text-gray-400 hover:text-white'}`}
+          >
+            EN
+          </button>
+        </div>
+
+        {viewMode === 'landing' ? (
+          <>
+            <Button variant="ghost" size="sm" className="hidden md:flex text-gray-400 hover:text-white text-xs" onClick={onEnterApp}>
+              {t.dashboard}
+            </Button>
+            <Button size="sm" className="bg-purple-600 hover:bg-purple-500 text-white rounded-full px-5 shadow-lg shadow-purple-600/30 transition-all font-semibold text-xs" onClick={onEnterApp}>
+              {t.runAudit}
+              <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+            </Button>
+          </>
+        ) : (
+          <div className="flex items-center gap-3">
+            <Badge variant="secondary" className="bg-purple-950/30 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-lg text-[10px]">
+              {t.pitchMode}
+            </Badge>
+            <div className="w-8 h-8 rounded-full bg-purple-900/50 border border-purple-500/30 flex items-center justify-center overflow-hidden">
+               <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Pactum" alt="User" />
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
 
 // --- Sidebar history ---
 const Sidebar = ({ 
@@ -244,34 +459,37 @@ const Sidebar = ({
   activeAudit,
   onSelectAudit, 
   onNewAudit,
-  onDeleteAudit
+  onDeleteAudit,
+  lang
 }: { 
   history: PactumAudit[]; 
   activeAudit: PactumAudit | null;
   onSelectAudit: (audit: PactumAudit) => void; 
   onNewAudit: () => void;
   onDeleteAudit: (id: string, e: React.MouseEvent) => void;
+  lang: 'fr' | 'en';
 }) => {
+  const t = translations[lang];
   return (
     <aside className="w-72 border-r border-purple-950/20 bg-[#0a0a0d] flex flex-col h-screen fixed left-0 z-40 hidden lg:flex pt-6">
       <div className="p-4 flex flex-col h-full overflow-hidden">
         <Button 
           variant="outline" 
-          className="w-full justify-start gap-3 h-11 border-purple-600/30 bg-purple-950/10 hover:bg-purple-950/20 text-purple-300 hover:text-white transition-all rounded-xl mb-6 shadow-sm shadow-purple-500/5"
+          className="w-full justify-start gap-3 h-11 border-purple-600/30 bg-purple-950/10 hover:bg-purple-950/20 text-purple-300 hover:text-white transition-all rounded-xl mb-6 shadow-sm shadow-purple-500/5 text-xs font-semibold"
           onClick={onNewAudit}
         >
           <Plus className="w-4 h-4 text-purple-400" />
-          Nouveau Chat Audit
+          {t.newChat}
         </Button>
 
         <div className="flex-1 flex flex-col overflow-hidden">
-          <p className="text-[10px] font-bold uppercase text-purple-400/60 tracking-widest px-2 mb-3">Audits récents (IndexedDB)</p>
+          <p className="text-[10px] font-bold uppercase text-purple-400/60 tracking-widest px-2 mb-3">{t.recentAudits}</p>
           
           <ScrollArea className="flex-1 pr-3">
             <div className="space-y-1.5">
               {history.length === 0 ? (
                 <div className="p-4 text-center rounded-xl bg-purple-950/5 border border-purple-950/10 text-gray-500 text-xs mt-2">
-                  Aucun historique local
+                  {t.noHistory}
                 </div>
               ) : (
                 history.map((audit) => {
@@ -315,10 +533,10 @@ const Sidebar = ({
               <div className="w-6 h-6 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400">
                 <Lock className="w-3 h-3" />
               </div>
-              <span className="text-[11px] font-bold text-gray-300">Confidentialité Totale</span>
+              <span className="text-[11px] font-bold text-gray-300">{t.privacyTitle}</span>
             </div>
             <p className="text-[10px] text-gray-500 leading-normal">
-              Vos contrats ne quittent jamais votre machine. Tout est analysé en local.
+              {t.privacyDesc}
             </p>
           </div>
         </div>
@@ -332,13 +550,16 @@ function LandingView({
   onStart, 
   history, 
   onSelectAudit, 
-  onDeleteAudit 
+  onDeleteAudit,
+  lang
 }: { 
   onStart: () => void; 
   history: PactumAudit[]; 
   onSelectAudit: (audit: PactumAudit) => void;
   onDeleteAudit: (id: string, e: React.MouseEvent) => void;
+  lang: 'fr' | 'en';
 }) {
+  const t = translations[lang];
   return (
     <div className="relative pb-24 overflow-hidden">
       <div className="absolute top-0 right-1/4 -z-10 w-[600px] h-[600px] bg-purple-600/10 blur-[130px] rounded-full animate-pulse" />
@@ -353,42 +574,41 @@ function LandingView({
         >
           <Badge className="rounded-full px-4 py-1.5 bg-purple-950/40 text-purple-300 border border-purple-500/20 backdrop-blur-sm">
             <Sparkle className="w-3.5 h-3.5 mr-2 text-purple-400" />
-            Hackathon Winner : IA Souveraine & Locale
+            {t.landingTag}
           </Badge>
           
-          {/* Stunning Logo display */}
+          {/* Logo display */}
           <div className="flex justify-center py-4">
             <div className="w-28 h-28 rounded-3xl bg-purple-950/30 border border-purple-500/30 flex items-center justify-center overflow-hidden shadow-2xl relative group">
               <div className="absolute inset-0 bg-gradient-to-tr from-purple-600 to-indigo-600 opacity-20 blur-xl group-hover:opacity-40 transition-opacity"></div>
               <img src="/logo.png" alt="Pactum AI Logo" className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform" onError={(e) => {
-                // If logo.png has caching delay, show fallback
                 e.currentTarget.style.display = 'none';
               }} />
               <Shield className="w-12 h-12 text-purple-400 absolute" />
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] text-white">
-            Votre copilote juridique <span className="bg-gradient-to-r from-purple-400 via-violet-300 to-indigo-400 bg-clip-text text-transparent">conversationnel</span> 100% local.
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-white">
+            {t.landingTitle1} <span className="bg-gradient-to-r from-purple-400 via-violet-300 to-indigo-400 bg-clip-text text-transparent">{t.landingTitle2}</span> {t.landingTitle3}
           </h1>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Glissez-déposez des documents ou scannez des photos de contrats. Dialoguez avec nos 3 agents spécialisés (Extracteur, Auditeur, Rédacteur) en toute sécurité directement dans le navigateur.
+          <p className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            {t.landingDesc}
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button size="lg" className="h-14 px-8 rounded-2xl text-base font-bold bg-purple-600 hover:bg-purple-500 text-white gap-2.5 shadow-xl shadow-purple-600/20 group transition-all" onClick={onStart}>
-              Démarrer le Chat Legal
+              {t.startChat}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="outline" size="lg" className="h-14 px-8 rounded-2xl text-base font-bold border-purple-950/50 hover:bg-purple-950/10 text-gray-300 hover:text-white" onClick={onStart}>
-              Essayer le Mock Contrat
+              {t.tryMock}
             </Button>
           </div>
           
           <div className="pt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-gray-500">
-             <div className="flex items-center gap-2"><Lock className="w-4 h-4 text-purple-500/60" /> Inférence Locale (Zéro fuite)</div>
-             <div className="flex items-center gap-2"><Upload className="w-4 h-4 text-purple-500/60" /> Import PDF, Textes & Photos</div>
-             <div className="flex items-center gap-2"><Globe className="w-4 h-4 text-purple-500/60" /> PWA Installable Hors-ligne</div>
+             <div className="flex items-center gap-2"><Lock className="w-4 h-4 text-purple-500/60" /> {t.infoZeroLeak}</div>
+             <div className="flex items-center gap-2"><Upload className="w-4 h-4 text-purple-500/60" /> {t.infoImport}</div>
+             <div className="flex items-center gap-2"><Globe className="w-4 h-4 text-purple-500/60" /> {t.infoPwa}</div>
           </div>
         </motion.div>
       </section>
@@ -399,7 +619,7 @@ function LandingView({
           <div className="p-6 md:p-8 rounded-3xl bg-[#0b0b0f] border border-purple-950/30 shadow-2xl">
             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
               <History className="w-5 h-5 text-purple-400" />
-              Retrouvez vos discussions juridiques locales sauvegardées
+              {t.savedChats}
             </h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -419,7 +639,7 @@ function LandingView({
                             ? 'bg-amber-950/40 text-amber-400' 
                             : 'bg-red-950/40 text-red-400'
                       }`}>
-                        Score : {audit.auditor.compliance_score}/10
+                        {t.scoreText} {audit.auditor.compliance_score}/10
                       </span>
                       <span className="text-[10px] text-gray-500">{new Date(audit.timestamp).toLocaleDateString()}</span>
                     </div>
@@ -453,7 +673,8 @@ function ChatInterface({
   setActiveContractText,
   uploadedFileName,
   setUploadedFileName,
-  onAuditComplete
+  onAuditComplete,
+  lang
 }: {
   chatMessages: ChatMessage[];
   setChatMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>;
@@ -462,7 +683,9 @@ function ChatInterface({
   uploadedFileName: string;
   setUploadedFileName: React.Dispatch<React.SetStateAction<string>>;
   onAuditComplete: () => void;
+  lang: 'fr' | 'en';
 }) {
+  const t = translations[lang];
   const [inputText, setInputText] = useState('');
   const [analysisMode, setAnalysisMode] = useState<'simulation' | 'cloud' | 'local'>('simulation');
   const [isProcessing, setIsProcessing] = useState(false);
@@ -483,14 +706,16 @@ function ChatInterface({
   // Load sample contract
   const handleLoadSample = () => {
     setActiveContractText(HIGH_RISK_SAMPLE);
-    setUploadedFileName("Contrat Piégé (Sample High-Risk)");
+    setUploadedFileName(lang === 'fr' ? "Contrat Piégé (Sample High-Risk)" : "High-Risk Contract Sample");
     
     // Add upload message
     const userMsg: ChatMessage = {
       id: 'msg_' + Date.now(),
       sender: 'user',
       timestamp: Date.now(),
-      text: "Téléversement du contrat d'exemple piégé : *MASTER SERVICES AGREEMENT*",
+      text: lang === 'fr' 
+        ? "Téléversement du contrat d'exemple piégé : *MASTER SERVICES AGREEMENT*" 
+        : "Uploading high-risk sample contract: *MASTER SERVICES AGREEMENT*",
       type: 'contract_uploaded'
     };
     
@@ -498,12 +723,14 @@ function ChatInterface({
       id: 'msg_bot_' + Date.now(),
       sender: 'assistant',
       timestamp: Date.now() + 100,
-      text: "📝 **Contrat piégé chargé avec succès !**\n\nJ'ai détecté le document juridiques brut. Que voulez-vous que je fasse pour vous ?\n\nChoisissez une commande ou tapez votre question dans la zone de chat ci-dessous :",
+      text: lang === 'fr'
+        ? "📝 **Contrat piégé chargé avec succès !**\n\nJ'ai détecté le document juridique brut. Que voulez-vous que je fasse pour vous ?\n\nChoisissez une commande ou tapez votre question dans la zone de chat ci-dessous :"
+        : "📝 **High-risk contract loaded successfully!**\n\nI have detected the raw legal document. What would you like me to do for you?\n\nSelect an option or ask a question in the chat box below:",
       type: 'text'
     };
 
     setChatMessages(prev => [...prev, userMsg, botMsg]);
-    toast.success("Contrat piégé injecté.");
+    toast.success(t.toastContractInjected);
   };
 
   // Document Upload
@@ -521,7 +748,7 @@ function ChatInterface({
         id: 'msg_' + Date.now(),
         sender: 'user',
         timestamp: Date.now(),
-        text: `Fichier téléversé : **${file.name}**`,
+        text: lang === 'fr' ? `Fichier téléversé : **${file.name}**` : `Uploaded file: **${file.name}**`,
         type: 'contract_uploaded'
       };
 
@@ -529,12 +756,14 @@ function ChatInterface({
         id: 'msg_bot_' + Date.now(),
         sender: 'assistant',
         timestamp: Date.now() + 100,
-        text: `📝 **Contrat "${file.name}" importé avec succès !**\n\nLe moteur d'IA local est prêt à travailler sur ce texte. Que souhaitez-vous faire ?`,
+        text: lang === 'fr'
+          ? `📝 **Contrat "${file.name}" importé avec succès !**\n\nLe moteur d'IA local est prêt à travailler sur ce texte. Que souhaitez-vous faire ?`
+          : `📝 **Contract "${file.name}" successfully imported!**\n\nThe local AI engine is ready to analyze this text. What would you like to do?`,
         type: 'text'
       };
 
       setChatMessages(prev => [...prev, userMsg, botMsg]);
-      toast.success(`${file.name} importé !`);
+      toast.success(`${file.name} ${t.toastImported}`);
     };
     reader.readAsText(file);
   };
@@ -544,18 +773,18 @@ function ChatInterface({
     const file = e.target.files?.[0];
     if (!file) return;
 
-    toast.loading("Numérisation et extraction OCR en cours via IA locale...", { duration: 2500 });
+    toast.loading(t.toastAnalyzing, { duration: 2500 });
     
     setTimeout(() => {
       // Simulate reading contract from picture (load sample)
       setActiveContractText(HIGH_RISK_SAMPLE);
-      setUploadedFileName("Scan Photo - Contrat Commercial");
+      setUploadedFileName(lang === 'fr' ? "Scan Photo - Contrat Commercial" : "Photo Scan - Commercial Contract");
 
       const userMsg: ChatMessage = {
         id: 'msg_' + Date.now(),
         sender: 'user',
         timestamp: Date.now(),
-        text: `Photo du contrat importée : **${file.name}**`,
+        text: lang === 'fr' ? `Photo du contrat importée : **${file.name}**` : `Contract photo imported: **${file.name}**`,
         type: 'contract_uploaded'
       };
 
@@ -563,28 +792,39 @@ function ChatInterface({
         id: 'msg_bot_' + Date.now(),
         sender: 'assistant',
         timestamp: Date.now() + 100,
-        text: "📸 **Numérisation OCR complétée !**\n\nJ'ai converti la photo du contrat papier en texte modifiable. Je détecte un contrat commercial à haut risque.\n\nQuelle tâche d'agent souhaitez-vous lancer ?",
+        text: lang === 'fr'
+          ? "📸 **Numérisation OCR complétée !**\n\nJ'ai converti la photo du contrat papier en texte modifiable. Je détecte un contrat commercial à haut risque.\n\nQuelle tâche d'agent souhaitez-vous lancer ?"
+          : "📸 **OCR scanning completed!**\n\nI have converted the physical contract photo into editable text. I detect a high-risk commercial contract.\n\nWhich agent task would you like to launch?",
         type: 'text'
       };
 
       setChatMessages(prev => [...prev, userMsg, botMsg]);
-      toast.success("OCR terminé. Contrat numérisé !");
+      toast.success(t.toastOcrDone);
     }, 2000);
   };
 
   // Run Agent pipeline for specific task
   const runAgentTask = async (taskType: 'extractor' | 'auditor' | 'redactor' | 'full') => {
     if (!activeContractText) {
-      return toast.error("Veuillez d'abord téléverser ou coller un contrat !");
+      return toast.error(t.toastNoContract);
     }
 
     setIsProcessing(true);
     setProgressVal(0);
-    setProgressMsg("Spawning agent...");
+    setProgressMsg(lang === 'fr' ? "Création de l'agent..." : "Spawning agent...");
 
     try {
       const result = await runContractAnalysis(activeContractText, analysisMode, (prog) => {
-        setProgressMsg(prog.message);
+        // Simple translation of progress messages
+        let message = prog.message;
+        if (lang === 'en') {
+          if (message.includes("Initialisation")) message = "Initializing model in WebAssembly...";
+          else if (message.includes("Extraction")) message = "Extracting contract entities...";
+          else if (message.includes("Audit")) message = "Auditing regulatory risk compliance...";
+          else if (message.includes("Rédaction")) message = "Drafting protective alternative clauses...";
+          else if (message.includes("Sauvegarde")) message = "Saving global audit to IndexedDB...";
+        }
+        setProgressMsg(message);
         setProgressVal(prog.percentage);
       });
 
@@ -592,16 +832,24 @@ function ChatInterface({
       let chatType: ChatMessage['type'] = 'text';
 
       if (taskType === 'extractor') {
-        responseText = "🔍 **[Agent Extractor]** : J'ai identifié toutes les entités, variables et clauses financières. Voici le JSON structuré local :";
+        responseText = lang === 'fr'
+          ? "🔍 **[Agent Extractor]** : J'ai identifié toutes les entités, variables et clauses financières. Voici le JSON structuré local :"
+          : "🔍 **[Agent Extractor]**: I have identified all entities, variables, and financial clauses. Here is the structured local JSON:";
         chatType = 'extractor_result';
       } else if (taskType === 'auditor') {
-        responseText = `🛡️ **[Agent Auditor]** : Audit de conformité terminé. J'ai évalué le contrat à un score de **${result.auditor.compliance_score}/10**. Voici la liste des risques :`;
+        responseText = lang === 'fr'
+          ? `🛡️ **[Agent Auditor]** : Audit de conformité terminé. J'ai évalué le contrat à un score de **${result.auditor.compliance_score}/10**. Voici la liste des risques :`
+          : `🛡️ **[Agent Auditor]**: Compliance audit completed. I evaluated the contract at a score of **${result.auditor.compliance_score}/10**. Here is the list of risks:`;
         chatType = 'auditor_result';
       } else if (taskType === 'redactor') {
-        responseText = "🧠 **[Agent Redactor]** : J'ai analysé les clauses abusives et j'ai formulé des alternatives équilibrées et professionnelles :";
+        responseText = lang === 'fr'
+          ? "🧠 **[Agent Redactor]** : J'ai analysé les clauses abusives et j'ai formulé des alternatives équilibrées et professionnelles :"
+          : "🧠 **[Agent Redactor]**: I have analyzed unfair clauses and drafted balanced, professional alternatives:";
         chatType = 'redactor_result';
       } else {
-        responseText = `✨ **[Pipeline Pactum AI]** : Analyse globale 3-agents terminée avec succès. Score global de conformité : **${result.auditor.compliance_score}/10**.`;
+        responseText = lang === 'fr'
+          ? `✨ **[Pipeline Pactum AI]** : Analyse globale 3-agents terminée avec succès. Score global de conformité : **${result.auditor.compliance_score}/10**.`
+          : `✨ **[Pipeline Pactum AI]**: 3-Agent global analysis successfully completed. Compliance score: **${result.auditor.compliance_score}/10**.`;
         chatType = 'full_audit';
       }
 
@@ -617,10 +865,10 @@ function ChatInterface({
 
       setChatMessages(prev => [...prev, botMsg]);
       onAuditComplete();
-      toast.success("Agent local : Tâche complétée !");
+      toast.success(t.toastAgentDone);
 
     } catch (e: any) {
-      toast.error(e.message || "Erreur de traitement de l'agent");
+      toast.error(e.message || "Error processing local agent");
     } finally {
       setIsProcessing(false);
     }
@@ -645,14 +893,14 @@ function ChatInterface({
     const textLower = userText.toLowerCase();
     
     setIsProcessing(true);
-    setProgressMsg("L'assistant réfléchit...");
+    setProgressMsg(lang === 'fr' ? "L'assistant réfléchit..." : "Assistant is thinking...");
     setProgressVal(50);
 
     setTimeout(() => {
       let botResponse = '';
       
-      if (!activeContractText && (textLower.includes('audit') || textLower.includes('extra') || textLower.includes('rédig') || textLower.includes('analyse'))) {
-        botResponse = "⚠️ Je vois que vous me demandez d'agir sur un contrat, mais **aucun document n'a été importé** dans l'espace de travail.\n\nVeuillez coller le contrat, charger l'exemple piégé ou importer un fichier/photo avant que je ne puisse lancer mes agents !";
+      if (!activeContractText && (textLower.includes('audit') || textLower.includes('extra') || textLower.includes('rédig') || textLower.includes('analyse') || textLower.includes('write'))) {
+        botResponse = t.noContractAlert;
         setIsProcessing(false);
         setChatMessages(prev => [...prev, {
           id: 'bot_' + Date.now(),
@@ -669,13 +917,13 @@ function ChatInterface({
         return;
       }
 
-      if (textLower.includes('auditer') || textLower.includes('auditor') || textLower.includes('risque') || textLower.includes('conformité')) {
+      if (textLower.includes('auditer') || textLower.includes('auditor') || textLower.includes('risque') || textLower.includes('conformité') || textLower.includes('compliance')) {
         setIsProcessing(false);
         runAgentTask('auditor');
         return;
       }
 
-      if (textLower.includes('réécri') || textLower.includes('rédac') || textLower.includes('clause') || textLower.includes('abusive')) {
+      if (textLower.includes('réécri') || textLower.includes('rédac') || textLower.includes('clause') || textLower.includes('abusive') || textLower.includes('rewrite')) {
         setIsProcessing(false);
         runAgentTask('redactor');
         return;
@@ -688,14 +936,22 @@ function ChatInterface({
       }
 
       // General conversational answers
-      if (textLower.includes('bonjour') || textLower.includes('salut')) {
-        botResponse = "Bonjour ! Je suis Pactum AI, votre consultant juridique. Comment puis-je sécuriser vos accords commerciaux aujourd'hui ?";
-      } else if (textLower.includes('slack') || textLower.includes('slack résiliation')) {
-        botResponse = "Une clause de résiliation via Slack sous 2 heures (comme dans notre échantillon piégé) est extrêmement dangereuse. Elle n'offre aucune garantie écrite formelle et viole la notion de préavis raisonnable requis dans les contrats commerciaux standard. L'Agent Redactor propose à la place un préavis écrit de 30 jours par courrier recommandé.";
+      if (textLower.includes('bonjour') || textLower.includes('salut') || textLower.includes('hello') || textLower.includes('hi')) {
+        botResponse = lang === 'fr'
+          ? "Bonjour ! Je suis Pactum AI, votre consultant juridique. Comment puis-je sécuriser vos accords commerciaux aujourd'hui ?"
+          : "Hello! I am Pactum AI, your legal consultant. How can I secure your commercial agreements today?";
+      } else if (textLower.includes('slack')) {
+        botResponse = lang === 'fr'
+          ? "Une clause de résiliation via Slack sous 2 heures (comme dans notre échantillon piégé) est extrêmement dangereuse. Elle n'offre aucune garantie écrite formelle et viole la notion de préavis raisonnable requis dans les contrats commerciaux standard. L'Agent Redactor propose à la place un préavis écrit de 30 jours par courrier recommandé."
+          : "A termination clause via Slack with 2 hours' notice (as in our high-risk sample) is extremely dangerous. It offers no formal written guarantee and violates the reasonable notice period required in standard commercial agreements. The Redactor Agent proposes instead a written notice of 30 days by registered mail.";
       } else if (textLower.includes('ohada')) {
-        botResponse = "Le droit commercial OHADA (harmonisation du droit des affaires en Afrique) impose un principe de bonne foi dans l'exécution et la rupture des contrats. Les clauses léonines (comme des pénalités de retard unilatérales de 15% par mois) ou des ruptures brutales sans préavis raisonnable peuvent être déclarées nulles par un tribunal arbitral ou de commerce.";
+        botResponse = lang === 'fr'
+          ? "Le droit commercial OHADA (harmonisation du droit des affaires en Afrique) impose un principe de bonne foi dans l'exécution et la rupture des contrats. Les clauses léonines (comme des pénalités de retard unilatérales de 15% par mois) ou des ruptures brutales sans préavis raisonnable peuvent être déclarées nulles par un tribunal arbitral ou de commerce."
+          : "OHADA commercial law (harmonization of business law in Africa) mandates good faith in contract performance and termination. Unfair clauses (like unilateral late payment penalties of 15% per month) or sudden termination without reasonable notice can be ruled void by an arbitration or commercial court.";
       } else {
-        botResponse = "Je suis Pactum AI. Je gère 3 agents juridiques locaux :\n\n- 🔍 **Extractor** : pour extraire les dates, parties et variables.\n- 🛡️ **Auditor** : pour analyser les risques et le score de conformité.\n- 🧠 **Redactor** : pour réécrire les clauses abusives.\n\nVous pouvez lancer ces agents en cliquant sur les boutons sous les messages ou en me le demandant directement !";
+        botResponse = lang === 'fr'
+          ? "Je suis Pactum AI. Je gère 3 agents juridiques locaux :\n\n- 🔍 **Extractor** : pour extraire les dates, parties et variables.\n- 🛡️ **Auditor** : pour analyser les risques et le score de conformité.\n- 🧠 **Redactor** : pour réécrire les clauses abusives.\n\nVous pouvez lancer ces agents en cliquant sur les boutons sous les messages ou en me le demandant directement !"
+          : "I am Pactum AI. I manage 3 local legal agents:\n\n- 🔍 **Extractor**: to extract dates, parties, and variables.\n- 🛡️ **Auditor**: to analyze risks and compliance score.\n- 🧠 **Redactor**: to rewrite unfair clauses.\n\nYou can launch these agents by clicking the buttons under messages or by asking me directly!";
       }
 
       setIsProcessing(false);
@@ -715,10 +971,10 @@ function ChatInterface({
       <div className="flex flex-col sm:flex-row items-center justify-between border-b border-purple-950/20 px-6 py-3 bg-[#0a0a0d] gap-3">
         <div className="flex items-center gap-3">
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
-          <span className="text-xs font-bold text-gray-400">Pactum Local Copilot</span>
+          <span className="text-xs font-bold text-gray-400">{t.copilotStatus}</span>
           {uploadedFileName && (
              <Badge variant="outline" className="border-purple-500/20 text-purple-400 bg-purple-950/20 text-[10px] max-w-[200px] truncate">
-               Doc actif : {uploadedFileName}
+               {t.docActive} {uploadedFileName}
              </Badge>
           )}
         </div>
@@ -798,23 +1054,23 @@ function ChatInterface({
                     <div className="space-y-3 bg-[#0a0a0e] p-5 rounded-2xl border border-blue-950/40 shadow-2xl">
                       <p className="text-sm font-bold text-white flex items-center gap-2">
                         <FileSearch className="w-4 h-4 text-blue-400" />
-                        Variables clés extraites (Agent Extractor)
+                        {t.variablesTitle}
                       </p>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
                         <div className="p-3.5 rounded-xl bg-black border border-purple-950/10">
-                          <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-1">Parties contractantes</p>
+                          <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-1">{t.parties}</p>
                           <ul className="text-xs space-y-1 font-semibold text-blue-300">
                             {m.data.extractor.parties.map((p: string, idx: number) => <li key={idx}>• {p}</li>)}
                           </ul>
                         </div>
                         <div className="p-3.5 rounded-xl bg-black border border-purple-950/10">
-                          <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-1">Dates de validité</p>
+                          <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-1">{t.dates}</p>
                           <ul className="text-xs space-y-1 font-semibold text-indigo-300">
                             {m.data.extractor.dates.map((d: string, idx: number) => <li key={idx}>• {d}</li>)}
                           </ul>
                         </div>
                         <div className="p-3.5 rounded-xl bg-black border border-purple-950/10">
-                          <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-1">Responsabilités détectées</p>
+                          <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-1">{t.liabilities}</p>
                           <ul className="text-xs space-y-1 font-semibold text-purple-300 truncate">
                             {m.data.extractor.liabilities.map((l: string, idx: number) => <li key={idx} className="truncate">• {l}</li>)}
                           </ul>
@@ -828,10 +1084,10 @@ function ChatInterface({
                       <div className="flex items-center justify-between border-b border-purple-950/20 pb-3">
                         <p className="text-sm font-bold text-white flex items-center gap-2">
                           <Shield className="w-4 h-4 text-purple-400" />
-                          Rapport des Risques (Agent Auditor)
+                          {t.risksTitle}
                         </p>
                         <span className="text-xs font-bold text-purple-400 bg-purple-950/20 px-2 py-0.5 rounded border border-purple-500/20">
-                          Conformité : {m.data.auditor.compliance_score}/10
+                          {t.compliance} {m.data.auditor.compliance_score}/10
                         </span>
                       </div>
                       <div className="space-y-2 pt-1 max-h-72 overflow-y-auto pr-2">
@@ -845,7 +1101,7 @@ function ChatInterface({
                               <span className={`text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded shrink-0 ${
                                 isHigh ? 'bg-red-950/60 text-red-400' : isMedium ? 'bg-amber-950/60 text-amber-400' : 'bg-purple-950/60 text-purple-400'
                               }`}>
-                                {risk.severity}
+                                {risk.severity === 'high' ? (lang === 'fr' ? 'Élevé' : 'High') : risk.severity === 'medium' ? (lang === 'fr' ? 'Moyen' : 'Medium') : (lang === 'fr' ? 'Faible' : 'Low')}
                               </span>
                               <div className="min-w-0">
                                 <p className="text-xs font-bold text-white">{risk.clause}</p>
@@ -862,17 +1118,17 @@ function ChatInterface({
                     <div className="space-y-3 bg-[#0a0a0e] p-5 rounded-2xl border border-emerald-950/30 shadow-2xl">
                       <p className="text-sm font-bold text-white flex items-center gap-2">
                         <BrainCircuit className="w-4 h-4 text-emerald-400" />
-                        Réécriture des Clauses Abusives (Agent Redactor)
+                        {t.rewritesTitle}
                       </p>
                       <div className="space-y-3 pt-2">
                         {m.data.redactor.rewrites.map((rw: any, idx: number) => (
                           <div key={idx} className="border border-purple-950/15 rounded-xl overflow-hidden text-xs bg-black">
                             <div className="bg-red-950/10 p-3 border-b border-purple-950/10">
-                              <p className="text-[9px] font-bold text-red-400 uppercase tracking-widest mb-1 flex items-center gap-1"><AlertTriangle className="w-3 h-3"/> Clause Originale</p>
+                              <p className="text-[9px] font-bold text-red-400 uppercase tracking-widest mb-1 flex items-center gap-1"><AlertTriangle className="w-3 h-3"/> {t.originalClause}</p>
                               <p className="font-mono text-[11px] text-gray-400">{rw.original}</p>
                             </div>
                             <div className="bg-emerald-950/10 p-3">
-                              <p className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest mb-1 flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> Proposition Pactum AI</p>
+                              <p className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest mb-1 flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> {t.pactumProposal}</p>
                               <p className="font-mono text-[11px] text-emerald-200">{rw.balanced}</p>
                             </div>
                           </div>
@@ -886,11 +1142,11 @@ function ChatInterface({
                       <div className="text-sm md:text-base leading-relaxed text-gray-200/90 whitespace-pre-wrap font-sans">
                         {m.text}
                       </div>
-                      <ResultsView audit={m.data} />
+                      <ResultsView audit={m.data} lang={lang} />
                     </div>
                   )}
 
-                  {/* Interactive Quick Agent Chips directly under bot messages */}
+                  {/* Interactive Quick Agent Chips */}
                   {isBot && activeContractText && m.type !== 'full_audit' && m.type !== 'extractor_result' && m.type !== 'auditor_result' && m.type !== 'redactor_result' && (
                     <div className="flex flex-wrap gap-2 pt-2">
                        <Button 
@@ -899,7 +1155,7 @@ function ChatInterface({
                          className="h-8 text-[10px] font-bold border-blue-500/20 text-blue-300 hover:text-white bg-blue-950/10 hover:bg-blue-900/20 rounded-xl"
                        >
                          <FileSearch className="w-3.5 h-3.5 mr-1" />
-                         1. Run Extractor
+                         {t.runExtractorBtn}
                        </Button>
                        <Button 
                          onClick={() => runAgentTask('auditor')}
@@ -907,7 +1163,7 @@ function ChatInterface({
                          className="h-8 text-[10px] font-bold border-purple-500/20 text-purple-300 hover:text-white bg-purple-950/10 hover:bg-purple-900/20 rounded-xl"
                        >
                          <Shield className="w-3.5 h-3.5 mr-1" />
-                         2. Run Auditor
+                         {t.runAuditorBtn}
                        </Button>
                        <Button 
                          onClick={() => runAgentTask('redactor')}
@@ -915,14 +1171,14 @@ function ChatInterface({
                          className="h-8 text-[10px] font-bold border-emerald-500/20 text-emerald-300 hover:text-white bg-emerald-950/10 hover:bg-emerald-900/20 rounded-xl"
                        >
                          <BrainCircuit className="w-3.5 h-3.5 mr-1" />
-                         3. Run Redactor
+                         {t.runRedactorBtn}
                        </Button>
                        <Button 
                          onClick={() => runAgentTask('full')}
                          className="h-8 text-[10px] font-bold bg-purple-600 hover:bg-purple-500 text-white rounded-xl shadow-md"
                        >
                          <Sparkle className="w-3.5 h-3.5 mr-1 animate-pulse" />
-                         Analyse Globale (3 Agents)
+                         {t.runFullBtn}
                        </Button>
                     </div>
                   )}
@@ -953,7 +1209,7 @@ function ChatInterface({
                     <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce [animation-delay:-0.3s]" />
                     <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce [animation-delay:-0.15s]" />
                     <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce" />
-                    <span className="text-[10px] font-bold text-purple-400 ml-1 uppercase tracking-widest">IA en cours de traitement</span>
+                    <span className="text-[10px] font-bold text-purple-400 ml-1 uppercase tracking-widest">{t.iaProcessing}</span>
                   </div>
                   <p className="text-xs text-gray-400 font-medium italic">{progressMsg}</p>
                   <Progress value={progressVal} className="h-1 bg-purple-950/40 mt-1" />
@@ -970,9 +1226,9 @@ function ChatInterface({
                 <Shield className="w-8 h-8 text-purple-400" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-2xl font-extrabold text-white tracking-tight leading-none">Pactum AI Espace de Chat</h3>
+                <h3 className="text-2xl font-extrabold text-white tracking-tight leading-none">{t.workspaceTitle}</h3>
                 <p className="text-gray-400 text-sm max-w-md mx-auto leading-relaxed pt-1.5">
-                  Aucun contrat chargé. Pour commencer l'audit, utilisez le bouton **"+"** pour importer un fichier, une photo du contrat ou chargez le modèle d'essai.
+                  {t.workspaceDesc}
                 </p>
               </div>
               
@@ -983,7 +1239,7 @@ function ChatInterface({
                   className="h-11 rounded-xl gap-2 text-xs border-purple-600/30 text-purple-300 hover:text-white bg-purple-950/15 w-full sm:w-auto"
                 >
                   <AlertTriangle className="w-4 h-4 text-purple-400 animate-pulse" />
-                  Charger l'exemple (High-Risk)
+                  {t.loadSampleBtn}
                 </Button>
                 
                 <Button 
@@ -991,7 +1247,7 @@ function ChatInterface({
                   className="h-11 rounded-xl gap-2 text-xs bg-purple-600 hover:bg-purple-500 text-white w-full sm:w-auto shadow-lg shadow-purple-600/20"
                 >
                   <Upload className="w-4 h-4" />
-                  Sélectionner un fichier
+                  {t.selectFileBtn}
                 </Button>
               </div>
             </div>
@@ -1032,7 +1288,7 @@ function ChatInterface({
                 size="icon" 
                 className="h-10 w-10 text-gray-500 hover:text-purple-400 hover:bg-purple-950/20 rounded-xl transition-colors"
                 onClick={() => fileInputRef.current?.click()}
-                title="Importer un fichier contrat"
+                title={lang === 'fr' ? "Importer un fichier contrat" : "Import a contract file"}
               >
                 <Paperclip className="w-5 h-5" />
               </Button>
@@ -1042,7 +1298,7 @@ function ChatInterface({
                 size="icon" 
                 className="h-10 w-10 text-gray-500 hover:text-purple-400 hover:bg-purple-950/20 rounded-xl transition-colors"
                 onClick={() => photoInputRef.current?.click()}
-                title="Scannez une photo du contrat"
+                title={lang === 'fr' ? "Scannez une photo du contrat" : "Scan a physical contract photo"}
               >
                 <FileImage className="w-5 h-5" />
               </Button>
@@ -1057,7 +1313,7 @@ function ChatInterface({
                   handleSendMessage();
                 }
               }}
-              placeholder="Posez une question, collez un contrat ou lancez un agent local..."
+              placeholder={t.placeholderText}
               className="flex-1 max-h-36 min-h-[44px] py-3 bg-transparent border-none focus:ring-0 text-sm resize-none outline-none text-gray-200 placeholder:text-gray-600 transition-all font-sans"
               rows={1}
             />
@@ -1075,7 +1331,7 @@ function ChatInterface({
           </div>
           
           <p className="text-[10px] text-center mt-3 text-gray-600 font-medium">
-             Pactum AI compile et exécute les agents en local. Les photos sont numérisées directement par l'IA du navigateur.
+             {t.footerAlert}
           </p>
         </div>
       </div>
@@ -1084,13 +1340,14 @@ function ChatInterface({
 }
 
 // --- Detailed Agentic Results View (Rendered inside chat thread) ---
-function ResultsView({ audit }: { audit: PactumAudit }) {
+function ResultsView({ audit, lang }: { audit: PactumAudit; lang: 'fr' | 'en' }) {
+  const t = translations[lang];
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   const copyToClipboard = (text: string, index: number) => {
     navigator.clipboard.writeText(text);
     setCopiedIndex(index);
-    toast.success("Clause copiée !");
+    toast.success(t.copiedToast);
     setTimeout(() => setCopiedIndex(null), 2000);
   };
 
@@ -1101,9 +1358,9 @@ function ResultsView({ audit }: { audit: PactumAudit }) {
   };
 
   const getScoreStatusText = (score: number) => {
-    if (score >= 7.5) return 'Conformité Excellente';
-    if (score >= 5) return 'Points de vigilance modérés';
-    return 'Conformité critique (Haut Risque)';
+    if (score >= 7.5) return t.excellentCompliance;
+    if (score >= 5) return t.moderateVigilance;
+    return t.criticalCompliance;
   };
 
   return (
@@ -1113,11 +1370,20 @@ function ResultsView({ audit }: { audit: PactumAudit }) {
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl bg-purple-950/5 border border-purple-950/20">
         <div className="space-y-1.5 flex-1 text-left">
           <p className="text-xs text-purple-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
-            <CheckCircle2 className="w-4 h-4" /> Syntèse de l'audit local
+            <CheckCircle2 className="w-4 h-4" /> {t.synthesisTitle}
           </p>
           <p className="text-xs text-gray-400 leading-normal">
-            Le contrat a un score de <strong>{audit.auditor.compliance_score}/10</strong>. 
-            {audit.auditor.compliance_score < 5 ? " Plusieurs clauses abusives requièrent des modifications." : " La structure juridique est globalement saine."}
+            {lang === 'fr' ? (
+              <>
+                Le contrat a un score de <strong>{audit.auditor.compliance_score}/10</strong>. 
+                {audit.auditor.compliance_score < 5 ? t.clausesAbusiveWarning : t.structureHealthy}
+              </>
+            ) : (
+              <>
+                The contract has a compliance score of <strong>{audit.auditor.compliance_score}/10</strong>.
+                {audit.auditor.compliance_score < 5 ? t.clausesAbusiveWarning : t.structureHealthy}
+              </>
+            )}
           </p>
           <div className="flex items-center gap-2 pt-1">
             <span className={`text-[9px] font-bold px-2 py-0.5 rounded border ${getScoreBadgeColor(audit.auditor.compliance_score)}`}>
@@ -1170,7 +1436,7 @@ function ResultsView({ audit }: { audit: PactumAudit }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="p-3 bg-[#0e0e13] border border-purple-950/20 rounded-xl text-left">
               <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-1 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" /> Parties
+                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" /> {lang === 'fr' ? 'Parties' : 'Parties'}
               </p>
               <ul className="text-[11px] space-y-1 text-blue-200">
                 {audit.extractor.parties.map((p, i) => <li key={i} className="truncate">• {p}</li>)}
@@ -1178,7 +1444,7 @@ function ResultsView({ audit }: { audit: PactumAudit }) {
             </div>
             <div className="p-3 bg-[#0e0e13] border border-purple-950/20 rounded-xl text-left">
               <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-1 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full" /> Dates
+                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full" /> {lang === 'fr' ? 'Dates' : 'Dates'}
               </p>
               <ul className="text-[11px] space-y-1 text-indigo-300">
                 {audit.extractor.dates.map((d, i) => <li key={i} className="truncate">• {d}</li>)}
@@ -1186,7 +1452,7 @@ function ResultsView({ audit }: { audit: PactumAudit }) {
             </div>
             <div className="p-3 bg-[#0e0e13] border border-purple-950/20 rounded-xl text-left">
               <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-1 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" /> Limites
+                <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" /> {lang === 'fr' ? 'Limites' : 'Liabilities'}
               </p>
               <ul className="text-[11px] space-y-1 text-purple-200">
                 {audit.extractor.liabilities.map((l, i) => <li key={i} className="truncate">• {l}</li>)}
@@ -1201,7 +1467,7 @@ function ResultsView({ audit }: { audit: PactumAudit }) {
               <span className={`text-[7px] font-black uppercase tracking-wider px-1 rounded-full shrink-0 ${
                 risk.severity === 'high' ? 'bg-red-950/50 text-red-400' : risk.severity === 'medium' ? 'bg-amber-950/50 text-amber-400' : 'bg-purple-950/50 text-purple-400'
               }`}>
-                {risk.severity}
+                {risk.severity === 'high' ? (lang === 'fr' ? 'Élevé' : 'High') : risk.severity === 'medium' ? (lang === 'fr' ? 'Moyen' : 'Medium') : (lang === 'fr' ? 'Faible' : 'Low')}
               </span>
               <div className="min-w-0">
                 <p className="text-[11px] font-bold text-white leading-none">{risk.clause}</p>
@@ -1215,23 +1481,23 @@ function ResultsView({ audit }: { audit: PactumAudit }) {
           {audit.redactor.rewrites.map((rw, idx) => (
             <div key={idx} className="border border-purple-950/25 rounded-xl overflow-hidden text-[10px] bg-[#0d0d12]">
               <div className="flex items-center justify-between px-3 py-1 bg-purple-950/10 border-b border-purple-950/20">
-                <span className="text-[8px] font-bold uppercase text-purple-400">Clause #{idx + 1}</span>
+                <span className="text-[8px] font-bold uppercase text-purple-400">{t.clauseNumber}{idx + 1}</span>
                 <Button 
                   size="sm" 
                   variant="ghost" 
                   onClick={() => copyToClipboard(rw.balanced, idx)}
-                  className="h-5 text-[8px] text-purple-300 font-bold px-1.5"
+                  className="h-5 text-[8px] text-purple-300 font-bold px-1.5 animate-none"
                 >
-                  {copiedIndex === idx ? 'Copié' : 'Copier'}
+                  {copiedIndex === idx ? t.copiedText : t.copyText}
                 </Button>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-purple-950/20 text-left">
                 <div className="p-3 bg-black/10">
-                  <span className="text-[7px] font-bold uppercase tracking-wider text-red-400 block mb-1">Originale Abusive</span>
+                  <span className="text-[7px] font-bold uppercase tracking-wider text-red-400 block mb-1">{t.originalAbusive}</span>
                   <p className="font-mono text-[10px] text-gray-500 leading-relaxed">{rw.original}</p>
                 </div>
                 <div className="p-3 bg-emerald-950/5">
-                  <span className="text-[7px] font-bold uppercase tracking-wider text-emerald-400 block mb-1">Optimisation Pactum</span>
+                  <span className="text-[7px] font-bold uppercase tracking-wider text-emerald-400 block mb-1">{t.pactumOpt}</span>
                   <p className="font-mono text-[10px] text-emerald-100 leading-relaxed">{rw.balanced}</p>
                 </div>
               </div>
